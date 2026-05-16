@@ -23,20 +23,18 @@
   <style>
 
     :root {
-      --top-bar: #1e40af;
-      --header: #2550c0;
-      --mega-nav: #ffffff;
-      --banner: #1e40af;
+      --header: #f97316;
+      --flash-sale: #fbbf24;
       --bg: #ffffff;
       --card: #ffffff;
       --primary: #254fbf;
-      --chip-bg: #ffffff;
-      --price-color: #2249b9;
-      --stars: #f59e0b;
-      --footer: #1e293b;
+      --badge: #f97316;
+      --badge-hot: #dc2626;
+      --savings: #dc2626;
+      --original-price: #64748b;
+      --price-color: #f97316;
       --text: #1e293b;
       --text-muted: #64748b;
-      --border: #e5e7eb;
     }
 
     * {
@@ -52,27 +50,18 @@
       line-height: 1.6;
     }
 
-    h1, h2, h3, h4, .logo {
-      font-family: 'Luckiest Guy', Georgia, serif;
-    }
-
-    .top-bar {
-      background: var(--top-bar);
-      color: white;
-      padding: 0.5rem 2rem;
-      font-size: 0.75rem;
-      display: flex;
-      justify-content: space-between;
+    h1, h2, h3, .logo {
+      font-family: 'Luckiest Guy', sans-serif;
     }
 
     .header {
       background: var(--header);
+      color: white;
       padding: 1rem 2rem;
-      border-bottom: 1px solid var(--border);
     }
 
     .header-content {
-      max-width: 1400px;
+      max-width: 1600px;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
@@ -82,164 +71,94 @@
     .logo {
       font-size: 28px;
       font-weight: 700;
-      color: var(--primary);
     }
 
-    .search-bar {
+    .logo span {
+      color: var(--secondary);
+    }
+
+    .countdown {
+      background: rgba(0,0,0,0.2);
+      padding: 0.5rem 1.5rem;
+      border-radius: 30px;
       display: flex;
-      flex: 1;
-      max-width: 500px;
-      margin: 0 2rem;
-    }
-
-    .search-bar input {
-      flex: 1;
-      padding: 0.75rem 1rem;
-      border: 1px solid var(--border);
-      border-radius: 4px 0 0 4px;
-      font-size: 0.875rem;
-      outline: none;
-    }
-
-    .search-bar input:focus {
-      border-color: var(--primary);
-    }
-
-    .search-bar button {
-      padding: 0.75rem 1.5rem;
-      background: var(--primary);
-      border: none;
-      color: white;
-      border-radius: 0 4px 4px 0;
-      cursor: pointer;
-    }
-
-    .header-actions {
-      display: flex;
-      gap: 1.5rem;
+      gap: 1rem;
       align-items: center;
     }
 
-    .header-action {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-decoration: none;
-      color: var(--text);
-      font-size: 0.75rem;
-    }
-
-    .header-action-icon {
-      font-size: 1.25rem;
-      margin-bottom: 0.25rem;
-    }
-
-    .mega-nav {
-      background: var(--mega-nav);
-      border-bottom: 1px solid var(--border);
-      padding: 0 2rem;
-    }
-
-    .mega-nav-content {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: flex;
-      gap: 0;
-    }
-
-    .mega-nav-item {
-      padding: 1rem 1.5rem;
+    .countdown-label {
       font-size: 0.875rem;
-      font-weight: 500;
-      color: var(--text);
-      text-decoration: none;
-      border-bottom: 2px solid transparent;
-      transition: all 0.2s;
     }
 
-    .mega-nav-item:hover {
+    .countdown-timer {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .countdown-unit {
+      background: white;
       color: var(--primary);
-      border-bottom-color: var(--primary);
-    }
-
-    .banner {
-      background: linear-gradient(135deg, var(--banner) 0%, #3b82f6 100%);
-      color: white;
-      padding: 2rem 2rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-weight: 700;
+      min-width: 40px;
       text-align: center;
     }
 
-    .banner h2 {
-      font-size: 24px;
-      margin-bottom: 0.5rem;
-    }
-
-    .banner p {
-      font-size: 0.875rem;
-      opacity: 0.9;
-    }
-
-    .categories-bar {
-      display: flex;
-      gap: 1rem;
-      padding: 1rem 2rem;
-      overflow-x: auto;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
-    .category-chip {
-      padding: 0.5rem 1rem;
-      background: var(--chip-bg);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      font-size: 0.875rem;
-      white-space: nowrap;
-      cursor: pointer;
-      text-decoration: none;
+    .flash-banner {
+      background: var(--flash-sale);
       color: var(--text);
-      transition: all 0.2s;
+      padding: 0.75rem;
+      text-align: center;
+      font-weight: 700;
+      animation: flash 1s infinite;
     }
 
-    .category-chip:hover {
-      border-color: var(--primary);
+    @keyframes flash {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.9; }
+    }
+
+    .flash-banner span {
       color: var(--primary);
     }
 
-    .category-chip.active {
-      background: var(--primary);
-      color: white;
-      border-color: var(--primary);
-    }
-
-    .section {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 2rem 2rem;
-    }
-
-    .section-header {
+    .savings-bar {
+      background: white;
+      padding: 1rem 2rem;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1.5rem;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      border-bottom: 2px dashed var(--primary);
     }
 
-    .section-title {
-      font-size: 20px;
-      font-weight: 600;
+    .savings-stat {
+      text-align: center;
     }
 
-    .section-link {
-      color: var(--primary);
-      text-decoration: none;
-      font-size: 0.875rem;
+    .savings-stat-value {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--savings);
+    }
+
+    .savings-stat-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
     }
 
     .products-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1rem;
+      padding: 1.5rem 2rem;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 1400px) {
+      .products-grid { grid-template-columns: repeat(4, 1fr); }
     }
 
     @media (max-width: 1024px) {
@@ -248,8 +167,7 @@
 
     @media (max-width: 768px) {
       .products-grid { grid-template-columns: repeat(2, 1fr); }
-      .search-bar { display: none; }
-      .mega-nav { display: none; }
+      .countdown { display: none; }
     }
 
     @media (max-width: 480px) {
@@ -258,14 +176,38 @@
 
     .product-card {
       background: var(--card);
-      border-radius: 4px;
+      border-radius: 12px;
       overflow: hidden;
-      border: 1px solid var(--border);
-      transition: box-shadow 0.2s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      position: relative;
+      transition: transform 0.2s;
     }
 
     .product-card:hover {
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transform: translateY(-4px);
+    }
+
+    .deal-badge {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: var(--badge);
+      color: white;
+      padding: 0.5rem 1rem;
+      font-weight: 700;
+      font-size: 16px;
+      border-radius: 0 0 12px 0;
+      z-index: 1;
+    }
+
+    .deal-badge.hot {
+      background: linear-gradient(135deg, var(--badge) 0%, var(--badge-hot) 100%);
+      animation: pulse 1s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
     }
 
     .product-image {
@@ -278,17 +220,9 @@
       padding: 1rem;
     }
 
-    .product-category {
-      font-size: 0.7rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
     .product-title {
       font-size: 14px;
       font-weight: 500;
-      margin-top: 0.25rem;
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
@@ -296,716 +230,731 @@
       min-height: 2.6rem;
     }
 
-    .product-rating {
-      display: flex;
-      align-items: center;
-      gap: 0.25rem;
-      margin-top: 0.5rem;
-      font-size: 0.75rem;
+    .product-prices {
+      margin-top: 0.75rem;
     }
 
-    .product-rating-stars {
-      color: var(--stars);
-    }
-
-    .product-rating-count {
-      color: var(--text-muted);
+    .product-original {
+      font-size: 0.875rem;
+      text-decoration: line-through;
+      color: var(--original-price);
+      margin-right: 0.5rem;
     }
 
     .product-price {
-      font-size: 18px;
+      font-size: 20px;
       font-weight: 700;
       color: var(--price-color);
+    }
+
+    .savings-calculator {
+      background: #dcfce7;
+      padding: 0.5rem;
+      border-radius: 6px;
       margin-top: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+    }
+
+    .savings-amount {
+      color: var(--savings);
+      font-weight: 700;
+    }
+
+    .stock-bar {
+      height: 6px;
+      background: #fee2e2;
+      border-radius: 3px;
+      margin-top: 0.75rem;
+      overflow: hidden;
+    }
+
+    .stock-fill {
+      height: 100%;
+      background: var(--primary);
+      border-radius: 3px;
+    }
+
+    .stock-text {
+      font-size: 0.7rem;
+      color: var(--primary);
+      margin-top: 0.25rem;
+      display: block;
     }
 
     .product-btn {
       display: block;
       width: 100%;
-      padding: 0.75rem;
+      padding: 0.875rem;
       margin-top: 0.75rem;
       background: var(--primary);
       color: white;
       border: none;
-      border-radius: 4px;
-      font-weight: 500;
-      font-size: 14px;
+      border-radius: 12px;
+      font-weight: 700;
       cursor: pointer;
       text-decoration: none;
       text-align: center;
-      transition: background 0.2s;
+      transition: transform 0.2s;
     }
 
     .product-btn:hover {
-      filter: brightness(0.9);
-    }
-
-    .brands-section {
-      background: var(--card);
-      padding: 2rem;
-      text-align: center;
-    }
-
-    .brands-title {
-      font-size: 1.25rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .brands-grid {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
-    .brand-card {
-      padding: 1rem 2rem;
-      background: var(--bg);
-      border-radius: 8px;
-      font-weight: 600;
-      color: var(--text-muted);
+      transform: scale(1.02);
     }
 
     .footer {
-      background: var(--footer);
+      background: var(--text);
       color: white;
-      padding: 2rem 2rem;
-    }
-
-    .footer-inner {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
-    }
-
-    .footer h4 {
-      font-size: 0.875rem;
-      margin-bottom: 1rem;
-      color: white;
-    }
-
-    .footer a {
-      color: rgba(255,255,255,0.7);
-      text-decoration: none;
-      display: block;
-      margin-bottom: 0.5rem;
+      text-align: center;
+      padding: 1.5rem 2rem;
       font-size: 14px;
     }
 
-    .footer a:hover {
-      color: white;
-    }
-
-    .footer-bottom {
-      text-align: center;
-      padding-top: 2rem;
-      margin-top: 2rem;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      font-size: 0.75rem;
-      color: rgba(255,255,255,0.6);
-    }
-
-    @media (max-width: 768px) {
-      .footer-inner { grid-template-columns: repeat(2, 1fr); }
-    }
   </style>
 </head>
 <body>
   
-  <div class="top-bar">
-    <span>Free shipping on orders over ฿1,500</span>
-    <span>Customer Service: 1-800-SHOP</span>
-  </div>
-
   <header class="header">
     <div class="header-content">
-      <div class="logo">Corey Reviews</div>
-      <div class="search-bar">
-        <input type="text" placeholder="Search products, brands...">
-        <button>Search</button>
-      </div>
-      <div class="header-actions">
-        <a href="#" class="header-action">
-          <span class="header-action-icon">👤</span>
-          <span>Account</span>
-        </a>
-        <a href="#" class="header-action">
-          <span class="header-action-icon">♡</span>
-          <span>Wishlist</span>
-        </a>
-        <a href="#" class="header-action">
-          <span class="header-action-icon">🛒</span>
-          <span>Cart</span>
-        </a>
+      <div class="logo">COREY REVIEWS</div>
+      <div class="countdown">
+        <span class="countdown-label">🔥 Sale ends in:</span>
+        <div class="countdown-timer">
+          <span class="countdown-unit" id="hours">02</span>
+          <span class="countdown-unit" id="mins">14</span>
+          <span class="countdown-unit" id="secs">37</span>
+        </div>
       </div>
     </div>
   </header>
 
-  <nav class="mega-nav">
-    <div class="mega-nav-content">
-      <a href="#" class="mega-nav-item">Components</a>
-      <a href="#" class="mega-nav-item">PCs &amp; Laptops</a>
-      <a href="#" class="mega-nav-item">Electronics</a>
-      <a href="#" class="mega-nav-item">Gaming</a>
-      <a href="#" class="mega-nav-item">Networking</a>
-      <a href="#" class="mega-nav-item">Today&#039;s Deals</a>
-    </div>
-  </nav>
-
-  <div class="banner">
-    <h2>Welcome to Corey Reviews</h2>
-    <p>@CoreyReviews</p>
+  <div class="flash-banner">
+    ⚡ FLASH SALE - UP TO 80% OFF - SHOP NOW & SAVE BIG! ⚡
   </div>
 
-  <div class="categories-bar">
-    <a href="#" class="category-chip active" data-filter-category="all">All</a>
-    <a href="#" class="category-chip" data-filter-category="Home Appliances">Home Appliances</a>
-    <a href="#" class="category-chip" data-filter-category="Beauty">Beauty</a>
-    <a href="#" class="category-chip" data-filter-category="Mobiles &amp; Tablets">Mobiles &amp; Tablets</a>
-    <a href="#" class="category-chip" data-filter-category="Cameras &amp; Drones">Cameras &amp; Drones</a>
-    <a href="#" class="category-chip" data-filter-category="Televisions &amp; Videos">Televisions &amp; Videos</a>
+  <div class="savings-bar">
+    <div class="savings-stat">
+      <div class="savings-stat-value">฿2.5M+</div>
+      <div class="savings-stat-label">Total Saved by Customers</div>
+    </div>
+    <div class="savings-stat">
+      <div class="savings-stat-value">36</div>
+      <div class="savings-stat-label">Deals Available</div>
+    </div>
+    <div class="savings-stat">
+      <div class="savings-stat-value">4.8★</div>
+      <div class="savings-stat-label">Customer Rating</div>
+    </div>
   </div>
 
-  <section class="section">
-    <div class="section-header">
-      <h2 class="section-title">Featured Products</h2>
-      <a href="#" class="section-link">View All →</a>
-    </div>
-  
   <main class="products-grid">
     
-    <article class="product-card" data-category="Home Appliances">
+    <article class="product-card">
+      <span class="deal-badge ">SALE</span>
       <img src="https://th-live-01.slatic.net/p/8af78e898ee74f7e74033bee017c17c8.jpg" alt="Xiaomi Smart Air Purifier 4, an Intelligent Air Purifier. |   1 Year Warranty" class="product-image">
       <div class="product-info">
-        <span class="product-category">Home Appliances</span>
         <h2 class="product-title">Xiaomi Smart Air Purifier 4, an Intelligent Air Purifier. |   1 Year Warranty</h2>
-        <div class="product-rating">
+        <div class="product-prices">
           
-          
+          <span class="product-price">฿3990</span>
         </div>
-        <p class="product-price">฿3990</p>
-        <a href="https://www.lazada.co.th/products/i4191918931.html" target="_blank" rel="noopener" class="product-btn">Add to Cart</a>
+        
+        <div class="stock-bar"><div class="stock-fill" style="width: -63%;"></div></div>
+        <span class="stock-text">163% claimed</span>
+        <a href="https://www.lazada.co.th/products/i4191918931.html" target="_blank" rel="noopener" class="product-btn">🛒 Grab Deal</a>
       </div>
     </article>
 
-    <article class="product-card" data-category="Home Appliances">
+    <article class="product-card">
+      <span class="deal-badge ">SALE</span>
       <img src="https://th-live-01.slatic.net/p/1039d1130614300429894cbfcc34eb16.png" alt="[New] Xiaomi Mijia Air Purifier 6 Upgraded 5-Sensor System 5-Layer Air Purification System Lcd Color Display Removes Allergens Purifies the Air Throughout the House in 3.5 Minutes Controls Via App" class="product-image">
       <div class="product-info">
-        <span class="product-category">Home Appliances</span>
         <h2 class="product-title">[New] Xiaomi Mijia Air Purifier 6 Upgraded 5-Sensor System 5-Layer Air Purification System Lcd Color Display Removes Allergens Purifies the Air Throughout the House in 3.5 Minutes Controls Via App</h2>
-        <div class="product-rating">
+        <div class="product-prices">
           
-          
+          <span class="product-price">฿5790</span>
         </div>
-        <p class="product-price">฿5790</p>
-        <a href="https://www.lazada.co.th/products/i5874506089.html" target="_blank" rel="noopener" class="product-btn">Add to Cart</a>
+        
+        <div class="stock-bar"><div class="stock-fill" style="width: -40%;"></div></div>
+        <span class="stock-text">140% claimed</span>
+        <a href="https://www.lazada.co.th/products/i5874506089.html" target="_blank" rel="noopener" class="product-btn">🛒 Grab Deal</a>
       </div>
     </article>
 
-    <article class="product-card" data-category="Home Appliances">
+    <article class="product-card">
+      <span class="deal-badge ">SALE</span>
       <img src="https://th-live-01.slatic.net/p/0c0dc2ffbca19a5aac36e64fe00b92b2.jpg" alt="Xiaomi Smart Air Purifier 4 Compact |   1 Year Warranty" class="product-image">
       <div class="product-info">
-        <span class="product-category">Home Appliances</span>
         <h2 class="product-title">Xiaomi Smart Air Purifier 4 Compact |   1 Year Warranty</h2>
-        <div class="product-rating">
+        <div class="product-prices">
           
-          
+          <span class="product-price">฿2790</span>
         </div>
-        <p class="product-price">฿2790</p>
-        <a href="https://www.lazada.co.th/products/i4185065492.html" target="_blank" rel="noopener" class="product-btn">Add to Cart</a>
+        
+        <div class="stock-bar"><div class="stock-fill" style="width: -350%;"></div></div>
+        <span class="stock-text">450% claimed</span>
+        <a href="https://www.lazada.co.th/products/i4185065492.html" target="_blank" rel="noopener" class="product-btn">🛒 Grab Deal</a>
       </div>
     </article>
 
-    <article class="product-card" data-category="Home Appliances">
+    <article class="product-card">
+      <span class="deal-badge ">SALE</span>
       <img src="https://th-live-01.slatic.net/p/64db52b1fa6f6774c413fad20cf74626.png" alt="Xiaomi Robot Vacuum X20+ Intelligent Dust Collection in 10 Seconds |   Extra High Capacity Water Tank, 4 Liters |   1 Year Warranty" class="product-image">
       <div class="product-info">
-        <span class="product-category">Home Appliances</span>
         <h2 class="product-title">Xiaomi Robot Vacuum X20+ Intelligent Dust Collection in 10 Seconds |   Extra High Capacity Water Tank, 4 Liters |   1 Year Warranty</h2>
-        <div class="product-rating">
+        <div class="product-prices">
           
-          
+          <span class="product-price">฿9990</span>
         </div>
-        <p class="product-price">฿9990</p>
-        <a href="https://www.lazada.co.th/products/i5163838579.html" target="_blank" rel="noopener" class="product-btn">Add to Cart</a>
+        
+        <div class="stock-bar"><div class="stock-fill" style="width: 75%;"></div></div>
+        <span class="stock-text">25% claimed</span>
+        <a href="https://www.lazada.co.th/products/i5163838579.html" target="_blank" rel="noopener" class="product-btn">🛒 Grab Deal</a>
       </div>
     </article>
 
-    <article class="product-card" data-category="Home Appliances">
+    <article class="product-card">
+      <span class="deal-badge ">SALE</span>
       <img src="https://th-live-01.slatic.net/p/bb40a4220d4978edbaaa6e460dec9b70.jpg" alt="Xiaomi Handheld Garment Steamer พับเก็บได้｜ขนาดกะทัดรัด จัดเก็บสะดวก｜26 วินาทีร้อนเร็ว*｜ 30kPaไอน้ำแรงดัน*" class="product-image">
       <div class="product-info">
-        <span class="product-category">Home Appliances</span>
         <h2 class="product-title">Xiaomi Handheld Garment Steamer พับเก็บได้｜ขนาดกะทัดรัด จัดเก็บสะดวก｜26 วินาทีร้อนเร็ว*｜ 30kPaไอน้ำแรงดัน*</h2>
-        <div class="product-rating">
+        <div class="product-prices">
           
-          
+          <span class="product-price">฿899</span>
         </div>
-        <p class="product-price">฿899</p>
-        <a href="https://www.lazada.co.th/products/i5314169577.html" target="_blank" rel="noopener" class="product-btn">Add to Cart</a>
+        
+        <div class="stock-bar"><div class="stock-fill" style="width: 65%;"></div></div>
+        <span class="stock-text">35% claimed</span>
+        <a href="https://www.lazada.co.th/products/i5314169577.html" target="_blank" rel="noopener" class="product-btn">🛒 Grab Deal</a>
       </div>
     </article>
 
-    <article class="product-card" data-category="Home Appliances">
+    <article class="product-card">
+      <span class="deal-badge ">SALE</span>
       <img src="https://th-live-01.slatic.net/p/f867b45af69b4892f55ff560d26d5b0e.png" alt="[New] Xiaomi Mijia Washing and Drying Machine, Washing Capacity 10.5 Kg./ Drying Capacity 7 Kg. Inverter Front Cover, Steam Cleaning, Eliminates Bacteria, Washing and Drying 2in1, Controlled Via App." class="product-image">
       <div class="product-info">
-        <span class="product-category">Home Appliances</span>
         <h2 class="product-title">[New] Xiaomi Mijia Washing and Drying Machine, Washing Capacity 10.5 Kg./ Drying Capacity 7 Kg. Inverter Front Cover, Steam Cleaning, Eliminates Bacteria, Washing and Drying 2in1, Controlled Via App.</h2>
-        <div class="product-rating">
+        <div class="product-prices">
           
-          
+          <span class="product-price">฿10990</span>
         </div>
-        <p class="product-price">฿10990</p>
-        <a href="https://www.lazada.co.th/products/i5773152823.html" target="_blank" rel="noopener" class="product-btn">Add to Cart</a>
+        
+        <div class="stock-bar"><div class="stock-fill" style="width: -207%;"></div></div>
+        <span class="stock-text">307% claimed</span>
+        <a href="https://www.lazada.co.th/products/i5773152823.html" target="_blank" rel="noopener" class="product-btn">🛒 Grab Deal</a>
       </div>
     </article>
 
-    <article class="product-card" data-category="Home Appliances">
+    <article class="product-card">
+      <span class="deal-badge ">SALE</span>
       <img src="https://th-live-01.slatic.net/p/a6d8900f9a6fc589d85c362a8a01f463.png" alt="「Cash on Delivery Not Accepted」Xiaomi Mijia Inverter Pro Eco Air Conditioner, Size 12000Btu, 5-Level Energy Saving, 3 Stars, Ai Mode, Energy Saving. Cools Quickly in 30 Seconds." class="product-image">
       <div class="product-info">
-        <span class="product-category">Home Appliances</span>
         <h2 class="product-title">「Cash on Delivery Not Accepted」Xiaomi Mijia Inverter Pro Eco Air Conditioner, Size 12000Btu, 5-Level Energy Saving, 3 Stars, Ai Mode, Energy Saving. Cools Quickly in 30 Seconds.</h2>
-        <div class="product-rating">
+        <div class="product-prices">
           
-          
+          <span class="product-price">฿10999</span>
         </div>
-        <p class="product-price">฿10999</p>
-        <a href="https://www.lazada.co.th/products/i5596070860.html" target="_blank" rel="noopener" class="product-btn">Add to Cart</a>
+        
+        <div class="stock-bar"><div class="stock-fill" style="width: -34%;"></div></div>
+        <span class="stock-text">134% claimed</span>
+        <a href="https://www.lazada.co.th/products/i5596070860.html" target="_blank" rel="noopener" class="product-btn">🛒 Grab Deal</a>
       </div>
     </article>
 
-    <article class="product-card" data-category="Home Appliances">
+    <article class="product-card">
+      <span class="deal-badge ">SALE</span>
       <img src="https://th-live-01.slatic.net/p/25b19131e0707c259580a45ecc0ebe64.png" alt="[New] Xiaomi Mijia Smart Air Purifier Max | Purify the Air Throughout the Room in 1.6 Minutes. | Double Filter | 4-Layer Filtration System | Filter Viruses 99.9%" class="product-image">
       <div class="product-info">
-        <span class="product-category">Home Appliances</span>
         <h2 class="product-title">[New] Xiaomi Mijia Smart Air Purifier Max | Purify the Air Throughout the Room in 1.6 Minutes. | Double Filter | 4-Layer Filtration System | Filter Viruses 99.9%</h2>
-        <div class="product-rating">
+        <div class="product-prices">
           
-          
+          <span class="product-price">฿13990</span>
         </div>
-        <p class="product-price">฿13990</p>
-        <a href="https://www.lazada.co.th/products/i5997653633.html" target="_blank" rel="noopener" class="product-btn">Add to Cart</a>
+        
+        <div class="stock-bar"><div class="stock-fill" style="width: -22%;"></div></div>
+        <span class="stock-text">122% claimed</span>
+        <a href="https://www.lazada.co.th/products/i5997653633.html" target="_blank" rel="noopener" class="product-btn">🛒 Grab Deal</a>
       </div>
     </article>
 
-    <article class="product-card" data-category="Beauty">
+    <article class="product-card">
+      <span class="deal-badge ">SALE</span>
       <img src="https://filebroker-cdn.lazada.co.th/kf/Sf6060d2add7b410381ab6e4e32d097acY.jpg" alt="[แพ็กคู่] ลอรีอัล ปารีส L&#039;Oréal Paris Aura Perfect Milky Foam 100 ml โฟมล้างหน้าเพื่อผิวกระจ่างใส เนื้อมิลค์กี้โฟม" class="product-image">
       <div class="product-info">
-        <span class="product-category">Beauty</span>
         <h2 class="product-title">[แพ็กคู่] ลอรีอัล ปารีส L&#039;Oréal Paris Aura Perfect Milky Foam 100 ml โฟมล้างหน้าเพื่อผิวกระจ่างใส เนื้อมิลค์กี้โฟม</h2>
-        <div class="product-rating">
+        <div class="product-prices">
           
-          
+          <span class="product-price">฿209</span>
         </div>
-        <p class="product-price">฿209</p>
-        <a href="https://www.lazada.co.th/products/i1751846815.html" target="_blank" rel="noopener" class="product-btn">Add to Cart</a>
+        
+        <div class="stock-bar"><div class="stock-fill" style="width: -1569.0000000000002%;"></div></div>
+        <span class="stock-text">1669% claimed</span>
+        <a href="https://www.lazada.co.th/products/i1751846815.html" target="_blank" rel="noopener" class="product-btn">🛒 Grab Deal</a>
       </div>
     </article>
 
-    <article class="product-card" data-category="Beauty">
+    <article class="product-card">
+      <span class="deal-badge ">SALE</span>
       <img src="https://filebroker-cdn.lazada.co.th/kf/Sbb2d8ed827e14e1ea9521a18ce831749u.jpg" alt="[Set] L&#039;Oréal Paris Glycolic Bright Anti-Dark Spot Set Serum 30ml + Day Cream 50ml + Night Cream 50ml" class="product-image">
       <div class="product-info">
-        <span class="product-category">Beauty</span>
         <h2 class="product-title">[Set] L&#039;Oréal Paris Glycolic Bright Anti-Dark Spot Set Serum 30ml + Day Cream 50ml + Night Cream 50ml</h2>
-        <div class="product-rating">
+        <div class="product-prices">
           
-          
+          <span class="product-price">฿1399</span>
         </div>
-        <p class="product-price">฿1399</p>
-        <a href="https://www.lazada.co.th/products/i3246997734.html" target="_blank" rel="noopener" class="product-btn">Add to Cart</a>
+        
+        <div class="stock-bar"><div class="stock-fill" style="width: -2347%;"></div></div>
+        <span class="stock-text">2447% claimed</span>
+        <a href="https://www.lazada.co.th/products/i3246997734.html" target="_blank" rel="noopener" class="product-btn">🛒 Grab Deal</a>
       </div>
     </article>
 
-    <article class="product-card" data-category="Beauty">
+    <article class="product-card">
+      <span class="deal-badge ">SALE</span>
       <img src="https://filebroker-cdn.lazada.co.th/kf/S14fdf86bcfb840668e8626cc82990507h.jpg" alt="[Set] L&#039;Oréal Paris Glycolic Bright Anti-Dark Spot Set Day Cream 50ml + Night Cream 50ml Moisturizer Reduces Spots" class="product-image">
       <div class="product-info">
-        <span class="product-category">Beauty</span>
         <h2 class="product-title">[Set] L&#039;Oréal Paris Glycolic Bright Anti-Dark Spot Set Day Cream 50ml + Night Cream 50ml Moisturizer Reduces Spots</h2>
-        <div class="product-rating">
+        <div class="product-prices">
           
-          
+          <span class="product-price">฿899</span>
         </div>
-        <p class="product-price">฿899</p>
-        <a href="https://www.lazada.co.th/products/i3246999732.html" target="_blank" rel="noopener" class="product-btn">Add to Cart</a>
+        
+        <div class="stock-bar"><div class="stock-fill" style="width: -58%;"></div></div>
+        <span class="stock-text">158% claimed</span>
+        <a href="https://www.lazada.co.th/products/i3246999732.html" target="_blank" rel="noopener" class="product-btn">🛒 Grab Deal</a>
       </div>
     </article>
 
-    <article class="product-card" data-category="Beauty">
+    <article class="product-card">
+      <span class="deal-badge ">SALE</span>
       <img src="https://filebroker-cdn.lazada.co.th/kf/S13d221fec5314461885cf5869e1c4c16D.jpg" alt="[Double Pack] L&#039;Oréal Paris Glycolic Bright Anti-Dark Spot Brightening Serum 30ml X2 Serum for Glowing Skin and Reducing Spots." class="product-image">
       <div class="product-info">
-        <span class="product-category">Beauty</span>
         <h2 class="product-title">[Double Pack] L&#039;Oréal Paris Glycolic Bright Anti-Dark Spot Brightening Serum 30ml X2 Serum for Glowing Skin and Reducing Spots.</h2>
-        <div class="product-rating">
+        <div class="product-prices">
           
-          
+          <span class="product-price">฿1049</span>
         </div>
-        <p class="product-price">฿1049</p>
-        <a href="https://www.lazada.co.th/products/i3247036550.html" target="_blank" rel="noopener" class="product-btn">Add to Cart</a>
+        
+        <div class="stock-bar"><div class="stock-fill" style="width: -1778%;"></div></div>
+        <span class="stock-text">1878% claimed</span>
+        <a href="https://www.lazada.co.th/products/i3247036550.html" target="_blank" rel="noopener" class="product-btn">🛒 Grab Deal</a>
       </div>
     </article>
 
-    <article class="product-card" data-category="Beauty">
+    <article class="product-card">
+      <span class="deal-badge ">SALE</span>
       <img src="https://filebroker-cdn.lazada.co.th/kf/S2b65abc52a4944a89fb661fb1988422ar.jpg" alt="[No. 1 Best-Selling Sunscreen* Waterproof, Sweat-Proof] L&#039;Oréal Paris Uv Defender Invisible Fluid Spf50+ Pa++++ 50ml Invisible Sunscreen, Lightweight, Not Greasy." class="product-image">
       <div class="product-info">
-        <span class="product-category">Beauty</span>
         <h2 class="product-title">[No. 1 Best-Selling Sunscreen* Waterproof, Sweat-Proof] L&#039;Oréal Paris Uv Defender Invisible Fluid Spf50+ Pa++++ 50ml Invisible Sunscreen, Lightweight, Not Greasy.</h2>
-        <div class="product-rating">
+        <div class="product-prices">
           
-          
+          <span class="product-price">฿799</span>
         </div>
-        <p class="product-price">฿799</p>
-        <a href="https://www.lazada.co.th/products/i4218976343.html" target="_blank" rel="noopener" class="product-btn">Add to Cart</a>
+        
+        <div class="stock-bar"><div class="stock-fill" style="width: -2887%;"></div></div>
+        <span class="stock-text">2987% claimed</span>
+        <a href="https://www.lazada.co.th/products/i4218976343.html" target="_blank" rel="noopener" class="product-btn">🛒 Grab Deal</a>
       </div>
     </article>
 
-    <article class="product-card" data-category="Beauty">
+    <article class="product-card">
+      <span class="deal-badge ">SALE</span>
       <img src="https://filebroker-cdn.lazada.co.th/kf/S93e21b8249f94893811cf581998b8bf26.jpg" alt="New Lip Gloss! L&#039;Oreal Paris Infallible Laque Resistance Lacquer Resistance Lipstick, Glossy Texture, Lasts for 16 Hours." class="product-image">
       <div class="product-info">
-        <span class="product-category">Beauty</span>
         <h2 class="product-title">New Lip Gloss! L&#039;Oreal Paris Infallible Laque Resistance Lacquer Resistance Lipstick, Glossy Texture, Lasts for 16 Hours.</h2>
-        <div class="product-rating">
+        <div class="product-prices">
           
-          
+          <span class="product-price">฿309</span>
         </div>
-        <p class="product-price">฿309</p>
-        <a href="https://www.lazada.co.th/products/i5732586368.html" target="_blank" rel="noopener" class="product-btn">Add to Cart</a>
+        
+        <div class="stock-bar"><div class="stock-fill" style="width: -2333%;"></div></div>
+        <span class="stock-text">2433% claimed</span>
+        <a href="https://www.lazada.co.th/products/i5732586368.html" target="_blank" rel="noopener" class="product-btn">🛒 Grab Deal</a>
       </div>
     </article>
 
-    <article class="product-card" data-category="Home Appliances">
+    <article class="product-card">
+      <span class="deal-badge ">SALE</span>
       <img src="https://sg-test-11.slatic.net/p/943010cceac89918f778ff68c270d685.jpg" alt="Veet Wax Strips Easy Gel Wax Almond Oil Vitamin E Sensitive Skin 6 &#039;S" class="product-image">
       <div class="product-info">
-        <span class="product-category">Home Appliances</span>
         <h2 class="product-title">Veet Wax Strips Easy Gel Wax Almond Oil Vitamin E Sensitive Skin 6 &#039;S</h2>
-        <div class="product-rating">
+        <div class="product-prices">
           
-          
+          <span class="product-price">฿145</span>
         </div>
-        <p class="product-price">฿145</p>
-        <a href="https://www.lazada.co.th/products/i154265772.html" target="_blank" rel="noopener" class="product-btn">Add to Cart</a>
+        
+        <div class="stock-bar"><div class="stock-fill" style="width: 93%;"></div></div>
+        <span class="stock-text">🔥 Almost gone!</span>
+        <a href="https://www.lazada.co.th/products/i154265772.html" target="_blank" rel="noopener" class="product-btn">🛒 Grab Deal</a>
       </div>
     </article>
 
-    <article class="product-card" data-category="Home Appliances">
+    <article class="product-card">
+      <span class="deal-badge ">SALE</span>
       <img src="https://sg-test-11.slatic.net/p/924283ec85a5f12fc5e233eabcf4a9ab.jpg" alt="Veet Hair Removal Cream Silk &amp; Fresh Aloe Vera &amp; Vitamin E 50 G. ครีมกำจัดขน แว๊กซ์ขน" class="product-image">
       <div class="product-info">
-        <span class="product-category">Home Appliances</span>
         <h2 class="product-title">Veet Hair Removal Cream Silk &amp; Fresh Aloe Vera &amp; Vitamin E 50 G. ครีมกำจัดขน แว๊กซ์ขน</h2>
-        <div class="product-rating">
+        <div class="product-prices">
           
-          
+          <span class="product-price">฿249</span>
         </div>
-        <p class="product-price">฿249</p>
-        <a href="https://www.lazada.co.th/products/i140797607.html" target="_blank" rel="noopener" class="product-btn">Add to Cart</a>
+        
+        <div class="stock-bar"><div class="stock-fill" style="width: 98%;"></div></div>
+        <span class="stock-text">🔥 Almost gone!</span>
+        <a href="https://www.lazada.co.th/products/i140797607.html" target="_blank" rel="noopener" class="product-btn">🛒 Grab Deal</a>
       </div>
     </article>
 
-    <article class="product-card" data-category="Home Appliances">
+    <article class="product-card">
+      <span class="deal-badge ">SALE</span>
       <img src="https://sg-test-11.slatic.net/p/f44d3f21025c7cb9b9fdeb3032edff8f.jpg" alt="KIKICO Hair Crimper Portable Straightener 2in1 KK-850" class="product-image">
       <div class="product-info">
-        <span class="product-category">Home Appliances</span>
         <h2 class="product-title">KIKICO Hair Crimper Portable Straightener 2in1 KK-850</h2>
-        <div class="product-rating">
+        <div class="product-prices">
           
-          
+          <span class="product-price">฿1749</span>
         </div>
-        <p class="product-price">฿1749</p>
-        <a href="https://www.lazada.co.th/products/i6051364593.html" target="_blank" rel="noopener" class="product-btn">Add to Cart</a>
+        
+        <div class="stock-bar"><div class="stock-fill" style="width: 97%;"></div></div>
+        <span class="stock-text">🔥 Almost gone!</span>
+        <a href="https://www.lazada.co.th/products/i6051364593.html" target="_blank" rel="noopener" class="product-btn">🛒 Grab Deal</a>
       </div>
     </article>
 
-    <article class="product-card" data-category="Beauty">
+    <article class="product-card">
+      <span class="deal-badge ">SALE</span>
       <img src="https://sg-test-11.slatic.net/p/6ed30875bc1b36fcc97d68d23192e6d5.jpg" alt="Nivea Spray Extra Bright Radiant &amp; Smooth 150 Ml. สเปรย์ ลดเหงื่อ ระงับกลิ่นกาย" class="product-image">
       <div class="product-info">
-        <span class="product-category">Beauty</span>
         <h2 class="product-title">Nivea Spray Extra Bright Radiant &amp; Smooth 150 Ml. สเปรย์ ลดเหงื่อ ระงับกลิ่นกาย</h2>
-        <div class="product-rating">
+        <div class="product-prices">
           
-          
+          <span class="product-price">฿135</span>
         </div>
-        <p class="product-price">฿135</p>
-        <a href="https://www.lazada.co.th/products/i142353905.html" target="_blank" rel="noopener" class="product-btn">Add to Cart</a>
+        
+        <div class="stock-bar"><div class="stock-fill" style="width: -65%;"></div></div>
+        <span class="stock-text">165% claimed</span>
+        <a href="https://www.lazada.co.th/products/i142353905.html" target="_blank" rel="noopener" class="product-btn">🛒 Grab Deal</a>
       </div>
     </article>
 
-    <article class="product-card" data-category="Mobiles &amp; Tablets">
+    <article class="product-card">
+      <span class="deal-badge ">SALE</span>
       <img src="https://th-live-01.slatic.net/p/afdeac89a9d47891d2e1620c96de1282.jpg" alt="Sony Xperia 1 Vii (Black/Green/Pink)– Mobile Phone (Xq-Fs72) 1m7 |   New Ultra-Wide Angle Sensor |   Xperia Intelligence |Sony" class="product-image">
       <div class="product-info">
-        <span class="product-category">Mobiles &amp; Tablets</span>
         <h2 class="product-title">Sony Xperia 1 Vii (Black/Green/Pink)– Mobile Phone (Xq-Fs72) 1m7 |   New Ultra-Wide Angle Sensor |   Xperia Intelligence |Sony</h2>
-        <div class="product-rating">
+        <div class="product-prices">
           
-          
+          <span class="product-price">฿49990</span>
         </div>
-        <p class="product-price">฿49990</p>
-        <a href="https://www.lazada.co.th/products/i5767820722.html" target="_blank" rel="noopener" class="product-btn">Add to Cart</a>
+        
+        <div class="stock-bar"><div class="stock-fill" style="width: 92%;"></div></div>
+        <span class="stock-text">🔥 Almost gone!</span>
+        <a href="https://www.lazada.co.th/products/i5767820722.html" target="_blank" rel="noopener" class="product-btn">🛒 Grab Deal</a>
       </div>
     </article>
 
-    <article class="product-card" data-category="Mobiles &amp; Tablets">
+    <article class="product-card">
+      <span class="deal-badge ">SALE</span>
       <img src="https://th-live-01.slatic.net/p/98181bfb6071a60f6a135a5f39f89f4b.jpg" alt="Sony Xperia 10 Vii Mobile Phone Model (Xq-Fe72) 10m7 - Color Black/White/Turquoise |   Xperia Intelligence |   128Gb |   Screen 6.1 Inches |   5,000 Mah Battery, Battery Lasts for 2 Days [Pre-Order-30Days]" class="product-image">
       <div class="product-info">
-        <span class="product-category">Mobiles &amp; Tablets</span>
         <h2 class="product-title">Sony Xperia 10 Vii Mobile Phone Model (Xq-Fe72) 10m7 - Color Black/White/Turquoise |   Xperia Intelligence |   128Gb |   Screen 6.1 Inches |   5,000 Mah Battery, Battery Lasts for 2 Days [Pre-Order-30Days]</h2>
-        <div class="product-rating">
+        <div class="product-prices">
           
-          
+          <span class="product-price">฿16990</span>
         </div>
-        <p class="product-price">฿16990</p>
-        <a href="https://www.lazada.co.th/products/i5884672660.html" target="_blank" rel="noopener" class="product-btn">Add to Cart</a>
+        
+        <div class="stock-bar"><div class="stock-fill" style="width: 95%;"></div></div>
+        <span class="stock-text">🔥 Almost gone!</span>
+        <a href="https://www.lazada.co.th/products/i5884672660.html" target="_blank" rel="noopener" class="product-btn">🛒 Grab Deal</a>
       </div>
     </article>
 
-    <article class="product-card" data-category="Cameras &amp; Drones">
+    <article class="product-card">
+      <span class="deal-badge ">SALE</span>
       <img src="https://th-live-01.slatic.net/p/024a8caf842b5127ad28c4769c3ccb95.jpg" alt="Sony Lens เลนส์กล้อง / เลนส์ FE 85 มม. F1.8 (SEL85F18)" class="product-image">
       <div class="product-info">
-        <span class="product-category">Cameras &amp; Drones</span>
         <h2 class="product-title">Sony Lens เลนส์กล้อง / เลนส์ FE 85 มม. F1.8 (SEL85F18)</h2>
-        <div class="product-rating">
+        <div class="product-prices">
           
-          
+          <span class="product-price">฿17490</span>
         </div>
-        <p class="product-price">฿17490</p>
-        <a href="https://www.lazada.co.th/products/i503638446.html" target="_blank" rel="noopener" class="product-btn">Add to Cart</a>
+        
+        <div class="stock-bar"><div class="stock-fill" style="width: 94%;"></div></div>
+        <span class="stock-text">🔥 Almost gone!</span>
+        <a href="https://www.lazada.co.th/products/i503638446.html" target="_blank" rel="noopener" class="product-btn">🛒 Grab Deal</a>
       </div>
     </article>
 
-    <article class="product-card" data-category="Cameras &amp; Drones">
+    <article class="product-card">
+      <span class="deal-badge ">SALE</span>
       <img src="https://th-live-01.slatic.net/p/2f2fe1a8dc56b8bd020f5c2429ab1ae7.jpg" alt="Sony Lens เลนส์กล้อง / เลนส์ FE 35 มม. F1.4 GM (SEL35F14GM)" class="product-image">
       <div class="product-info">
-        <span class="product-category">Cameras &amp; Drones</span>
         <h2 class="product-title">Sony Lens เลนส์กล้อง / เลนส์ FE 35 มม. F1.4 GM (SEL35F14GM)</h2>
-        <div class="product-rating">
+        <div class="product-prices">
           
-          
+          <span class="product-price">฿45990</span>
         </div>
-        <p class="product-price">฿45990</p>
-        <a href="https://www.lazada.co.th/products/i2055334446.html" target="_blank" rel="noopener" class="product-btn">Add to Cart</a>
+        
+        <div class="stock-bar"><div class="stock-fill" style="width: 89%;"></div></div>
+        <span class="stock-text">🔥 Almost gone!</span>
+        <a href="https://www.lazada.co.th/products/i2055334446.html" target="_blank" rel="noopener" class="product-btn">🛒 Grab Deal</a>
       </div>
     </article>
 
-    <article class="product-card" data-category="Cameras &amp; Drones">
+    <article class="product-card">
+      <span class="deal-badge ">SALE</span>
       <img src="https://th-live-01.slatic.net/p/d9111024590c4c730a5930d4a6e7b1da.jpg" alt="Sony Lens เลนส์กล้อง / เลนส์ FE 50 มม. F1.4 GM (SEL50F14GM)" class="product-image">
       <div class="product-info">
-        <span class="product-category">Cameras &amp; Drones</span>
         <h2 class="product-title">Sony Lens เลนส์กล้อง / เลนส์ FE 50 มม. F1.4 GM (SEL50F14GM)</h2>
-        <div class="product-rating">
+        <div class="product-prices">
           
-          
+          <span class="product-price">฿49990</span>
         </div>
-        <p class="product-price">฿49990</p>
-        <a href="https://www.lazada.co.th/products/i4777550671.html" target="_blank" rel="noopener" class="product-btn">Add to Cart</a>
+        
+        <div class="stock-bar"><div class="stock-fill" style="width: 78%;"></div></div>
+        <span class="stock-text">22% claimed</span>
+        <a href="https://www.lazada.co.th/products/i4777550671.html" target="_blank" rel="noopener" class="product-btn">🛒 Grab Deal</a>
       </div>
     </article>
 
-    <article class="product-card" data-category="Cameras &amp; Drones">
+    <article class="product-card">
+      <span class="deal-badge ">SALE</span>
       <img src="https://th-live-01.slatic.net/p/191dd3c2e67a04d39a254863ac564f54.jpg" alt="Sony Camera กล้อง กล้องถ่ายรูป / กล้องฟูลเฟรม รุ่น Alpha 7C (ILCE-7C)" class="product-image">
       <div class="product-info">
-        <span class="product-category">Cameras &amp; Drones</span>
         <h2 class="product-title">Sony Camera กล้อง กล้องถ่ายรูป / กล้องฟูลเฟรม รุ่น Alpha 7C (ILCE-7C)</h2>
-        <div class="product-rating">
+        <div class="product-prices">
           
-          
+          <span class="product-price">฿44990</span>
         </div>
-        <p class="product-price">฿44990</p>
-        <a href="https://www.lazada.co.th/products/i1906306573.html" target="_blank" rel="noopener" class="product-btn">Add to Cart</a>
+        
+        <div class="stock-bar"><div class="stock-fill" style="width: 61%;"></div></div>
+        <span class="stock-text">39% claimed</span>
+        <a href="https://www.lazada.co.th/products/i1906306573.html" target="_blank" rel="noopener" class="product-btn">🛒 Grab Deal</a>
       </div>
     </article>
 
-    <article class="product-card" data-category="Cameras &amp; Drones">
+    <article class="product-card">
+      <span class="deal-badge ">SALE</span>
       <img src="https://th-live-01.slatic.net/p/9bcb9070fb7ae7e1a10234d70c8bdf9c.jpg" alt="Sony Lens เลนส์กล้อง / เลนส์ FE 50 มม. F1.2 GM (SEL50F12GM)" class="product-image">
       <div class="product-info">
-        <span class="product-category">Cameras &amp; Drones</span>
         <h2 class="product-title">Sony Lens เลนส์กล้อง / เลนส์ FE 50 มม. F1.2 GM (SEL50F12GM)</h2>
-        <div class="product-rating">
+        <div class="product-prices">
           
-          
+          <span class="product-price">฿65990</span>
         </div>
-        <p class="product-price">฿65990</p>
-        <a href="https://www.lazada.co.th/products/i2938486531.html" target="_blank" rel="noopener" class="product-btn">Add to Cart</a>
+        
+        <div class="stock-bar"><div class="stock-fill" style="width: 71%;"></div></div>
+        <span class="stock-text">29% claimed</span>
+        <a href="https://www.lazada.co.th/products/i2938486531.html" target="_blank" rel="noopener" class="product-btn">🛒 Grab Deal</a>
       </div>
     </article>
 
-    <article class="product-card" data-category="Cameras &amp; Drones">
+    <article class="product-card">
+      <span class="deal-badge ">SALE</span>
       <img src="https://th-live-01.slatic.net/p/4c1c0e92010bff3be883192f9c757b96.jpg" alt="Sony Camera กล้อง กล้องถ่ายรูป / กล้องฟูลเฟรม รุ่น Alpha 7C  พร้อมเลนส์คิท FE 28-60 มม. (ILCE-7CL)" class="product-image">
       <div class="product-info">
-        <span class="product-category">Cameras &amp; Drones</span>
         <h2 class="product-title">Sony Camera กล้อง กล้องถ่ายรูป / กล้องฟูลเฟรม รุ่น Alpha 7C  พร้อมเลนส์คิท FE 28-60 มม. (ILCE-7CL)</h2>
-        <div class="product-rating">
+        <div class="product-prices">
           
-          
+          <span class="product-price">฿53990</span>
         </div>
-        <p class="product-price">฿53990</p>
-        <a href="https://www.lazada.co.th/products/i1906780535.html" target="_blank" rel="noopener" class="product-btn">Add to Cart</a>
+        
+        <div class="stock-bar"><div class="stock-fill" style="width: 95%;"></div></div>
+        <span class="stock-text">🔥 Almost gone!</span>
+        <a href="https://www.lazada.co.th/products/i1906780535.html" target="_blank" rel="noopener" class="product-btn">🛒 Grab Deal</a>
       </div>
     </article>
 
-    <article class="product-card" data-category="Televisions &amp; Videos">
+    <article class="product-card">
+      <span class="deal-badge ">SALE</span>
       <img src="https://th-live-01.slatic.net/p/fa7f3b13a706ff8cad3fa62125c305c2.png" alt="[New Model] Sony BRAVIA 2 ทีวี 43 นิ้ว รุ่น K-43S20M2 4K Ultra HD Smart TV (Google TV) | 4K HDR Processor X1™" class="product-image">
       <div class="product-info">
-        <span class="product-category">Televisions &amp; Videos</span>
         <h2 class="product-title">[New Model] Sony BRAVIA 2 ทีวี 43 นิ้ว รุ่น K-43S20M2 4K Ultra HD Smart TV (Google TV) | 4K HDR Processor X1™</h2>
-        <div class="product-rating">
+        <div class="product-prices">
           
-          
+          <span class="product-price">฿13990</span>
         </div>
-        <p class="product-price">฿13990</p>
-        <a href="https://www.lazada.co.th/products/i5791736207.html" target="_blank" rel="noopener" class="product-btn">Add to Cart</a>
+        
+        <div class="stock-bar"><div class="stock-fill" style="width: 89%;"></div></div>
+        <span class="stock-text">🔥 Almost gone!</span>
+        <a href="https://www.lazada.co.th/products/i5791736207.html" target="_blank" rel="noopener" class="product-btn">🛒 Grab Deal</a>
       </div>
     </article>
 
-    <article class="product-card" data-category="Televisions &amp; Videos">
+    <article class="product-card">
+      <span class="deal-badge ">SALE</span>
       <img src="https://sg-live-01.slatic.net/p/9d800d84611adb0ed1e973f46ec8834d.jpg" alt="Sony ทีวี 32 นิ้ว รุ่น KD-32W830K HDR Smart TV (Google TV)" class="product-image">
       <div class="product-info">
-        <span class="product-category">Televisions &amp; Videos</span>
         <h2 class="product-title">Sony ทีวี 32 นิ้ว รุ่น KD-32W830K HDR Smart TV (Google TV)</h2>
-        <div class="product-rating">
+        <div class="product-prices">
           
-          
+          <span class="product-price">฿9890</span>
         </div>
-        <p class="product-price">฿9890</p>
-        <a href="https://www.lazada.co.th/products/i3806057062.html" target="_blank" rel="noopener" class="product-btn">Add to Cart</a>
+        
+        <div class="stock-bar"><div class="stock-fill" style="width: 79%;"></div></div>
+        <span class="stock-text">21% claimed</span>
+        <a href="https://www.lazada.co.th/products/i3806057062.html" target="_blank" rel="noopener" class="product-btn">🛒 Grab Deal</a>
       </div>
     </article>
 
-    <article class="product-card" data-category="Televisions &amp; Videos">
+    <article class="product-card">
+      <span class="deal-badge ">SALE</span>
       <img src="https://th-live-01.slatic.net/p/31ad1a9229cfa2b51a1d0b906d02ebe2.jpg" alt="Sony BRAVIA XR ทีวี 65 นิ้ว รุ่น XR-65X90L Full Array LED 4K Ultra HD Smart TV (Google TV) | 4K Ultra HD" class="product-image">
       <div class="product-info">
-        <span class="product-category">Televisions &amp; Videos</span>
         <h2 class="product-title">Sony BRAVIA XR ทีวี 65 นิ้ว รุ่น XR-65X90L Full Array LED 4K Ultra HD Smart TV (Google TV) | 4K Ultra HD</h2>
-        <div class="product-rating">
+        <div class="product-prices">
           
-          
+          <span class="product-price">฿29990</span>
         </div>
-        <p class="product-price">฿29990</p>
-        <a href="https://www.lazada.co.th/products/i4667165573.html" target="_blank" rel="noopener" class="product-btn">Add to Cart</a>
+        
+        <div class="stock-bar"><div class="stock-fill" style="width: 70%;"></div></div>
+        <span class="stock-text">30% claimed</span>
+        <a href="https://www.lazada.co.th/products/i4667165573.html" target="_blank" rel="noopener" class="product-btn">🛒 Grab Deal</a>
       </div>
     </article>
 
-    <article class="product-card" data-category="Televisions &amp; Videos">
+    <article class="product-card">
+      <span class="deal-badge ">SALE</span>
       <img src="https://th-live-01.slatic.net/p/f9210c63e855752e98d7a62fec4a2ee2.png" alt="Sony BRAVIA 3 ทีวี 50 นิ้ว รุ่น K-50S30 4K Ultra HD Smart TV (Google TV) | 4K HDR Processor X1™" class="product-image">
       <div class="product-info">
-        <span class="product-category">Televisions &amp; Videos</span>
         <h2 class="product-title">Sony BRAVIA 3 ทีวี 50 นิ้ว รุ่น K-50S30 4K Ultra HD Smart TV (Google TV) | 4K HDR Processor X1™</h2>
-        <div class="product-rating">
+        <div class="product-prices">
           
-          
+          <span class="product-price">฿19990</span>
         </div>
-        <p class="product-price">฿19990</p>
-        <a href="https://www.lazada.co.th/products/i5164819195.html" target="_blank" rel="noopener" class="product-btn">Add to Cart</a>
+        
+        <div class="stock-bar"><div class="stock-fill" style="width: 72%;"></div></div>
+        <span class="stock-text">28% claimed</span>
+        <a href="https://www.lazada.co.th/products/i5164819195.html" target="_blank" rel="noopener" class="product-btn">🛒 Grab Deal</a>
       </div>
     </article>
 
-    <article class="product-card" data-category="Televisions &amp; Videos">
+    <article class="product-card">
+      <span class="deal-badge ">SALE</span>
       <img src="https://th-live-01.slatic.net/p/f9210c63e855752e98d7a62fec4a2ee2.png" alt="Sony BRAVIA 3 ทีวี 43 นิ้ว รุ่น K-43S30 4K Ultra HD Smart TV (Google TV) | 4K HDR Processor X1™" class="product-image">
       <div class="product-info">
-        <span class="product-category">Televisions &amp; Videos</span>
         <h2 class="product-title">Sony BRAVIA 3 ทีวี 43 นิ้ว รุ่น K-43S30 4K Ultra HD Smart TV (Google TV) | 4K HDR Processor X1™</h2>
-        <div class="product-rating">
+        <div class="product-prices">
           
-          
+          <span class="product-price">฿16990</span>
         </div>
-        <p class="product-price">฿16990</p>
-        <a href="https://www.lazada.co.th/products/i5164772218.html" target="_blank" rel="noopener" class="product-btn">Add to Cart</a>
+        
+        <div class="stock-bar"><div class="stock-fill" style="width: 93%;"></div></div>
+        <span class="stock-text">🔥 Almost gone!</span>
+        <a href="https://www.lazada.co.th/products/i5164772218.html" target="_blank" rel="noopener" class="product-btn">🛒 Grab Deal</a>
       </div>
     </article>
 
-    <article class="product-card" data-category="Televisions &amp; Videos">
+    <article class="product-card">
+      <span class="deal-badge ">SALE</span>
       <img src="https://th-live-01.slatic.net/p/f9210c63e855752e98d7a62fec4a2ee2.png" alt="Sony BRAVIA 3 ทีวี 55 นิ้ว รุ่น K-55S30 4K Ultra HD Smart TV (Google TV) | 4K HDR Processor X1™" class="product-image">
       <div class="product-info">
-        <span class="product-category">Televisions &amp; Videos</span>
         <h2 class="product-title">Sony BRAVIA 3 ทีวี 55 นิ้ว รุ่น K-55S30 4K Ultra HD Smart TV (Google TV) | 4K HDR Processor X1™</h2>
-        <div class="product-rating">
+        <div class="product-prices">
           
-          
+          <span class="product-price">฿21990</span>
         </div>
-        <p class="product-price">฿21990</p>
-        <a href="https://www.lazada.co.th/products/i5164783484.html" target="_blank" rel="noopener" class="product-btn">Add to Cart</a>
+        
+        <div class="stock-bar"><div class="stock-fill" style="width: -113%;"></div></div>
+        <span class="stock-text">213% claimed</span>
+        <a href="https://www.lazada.co.th/products/i5164783484.html" target="_blank" rel="noopener" class="product-btn">🛒 Grab Deal</a>
       </div>
     </article>
 
-    <article class="product-card" data-category="Televisions &amp; Videos">
+    <article class="product-card">
+      <span class="deal-badge ">SALE</span>
       <img src="https://th-live-01.slatic.net/p/08fb872059bdde5119bac7be7d83d540.png" alt="[New Model] Sony BRAVIA 5 ทีวี 55 นิ้ว รุ่น  K-55XR50 Mini LED 4K Ultra HD Smart TV (Google TV) | XR Processor" class="product-image">
       <div class="product-info">
-        <span class="product-category">Televisions &amp; Videos</span>
         <h2 class="product-title">[New Model] Sony BRAVIA 5 ทีวี 55 นิ้ว รุ่น  K-55XR50 Mini LED 4K Ultra HD Smart TV (Google TV) | XR Processor</h2>
-        <div class="product-rating">
+        <div class="product-prices">
           
-          
+          <span class="product-price">฿36790</span>
         </div>
-        <p class="product-price">฿36790</p>
-        <a href="https://www.lazada.co.th/products/i5791767180.html" target="_blank" rel="noopener" class="product-btn">Add to Cart</a>
+        
+        <div class="stock-bar"><div class="stock-fill" style="width: 91%;"></div></div>
+        <span class="stock-text">🔥 Almost gone!</span>
+        <a href="https://www.lazada.co.th/products/i5791767180.html" target="_blank" rel="noopener" class="product-btn">🛒 Grab Deal</a>
       </div>
     </article>
 
-    <article class="product-card" data-category="Televisions &amp; Videos">
+    <article class="product-card">
+      <span class="deal-badge ">SALE</span>
       <img src="https://th-live-01.slatic.net/p/fa7f3b13a706ff8cad3fa62125c305c2.png" alt="[New Model] Sony BRAVIA 2 ทีวี 50 นิ้ว รุ่น K-50S20M2 4K Ultra HD Smart TV (Google TV) | 4K HDR Processor X1™" class="product-image">
       <div class="product-info">
-        <span class="product-category">Televisions &amp; Videos</span>
         <h2 class="product-title">[New Model] Sony BRAVIA 2 ทีวี 50 นิ้ว รุ่น K-50S20M2 4K Ultra HD Smart TV (Google TV) | 4K HDR Processor X1™</h2>
-        <div class="product-rating">
+        <div class="product-prices">
           
-          
+          <span class="product-price">฿17990</span>
         </div>
-        <p class="product-price">฿17990</p>
-        <a href="https://www.lazada.co.th/products/i5791734249.html" target="_blank" rel="noopener" class="product-btn">Add to Cart</a>
+        
+        <div class="stock-bar"><div class="stock-fill" style="width: 92%;"></div></div>
+        <span class="stock-text">🔥 Almost gone!</span>
+        <a href="https://www.lazada.co.th/products/i5791734249.html" target="_blank" rel="noopener" class="product-btn">🛒 Grab Deal</a>
       </div>
     </article>
 
-    <article class="product-card" data-category="Televisions &amp; Videos">
+    <article class="product-card">
+      <span class="deal-badge ">SALE</span>
       <img src="https://th-live-01.slatic.net/p/b801a8caba4b461d66468a8c0b88dfae.png" alt="[New Model] Sony BRAVIA 8 II ทีวี 55 นิ้ว รุ่น K-55XR80M2 OLED  4K Ultra HD Smart TV (Google TV) | XR Processor" class="product-image">
       <div class="product-info">
-        <span class="product-category">Televisions &amp; Videos</span>
         <h2 class="product-title">[New Model] Sony BRAVIA 8 II ทีวี 55 นิ้ว รุ่น K-55XR80M2 OLED  4K Ultra HD Smart TV (Google TV) | XR Processor</h2>
-        <div class="product-rating">
+        <div class="product-prices">
           
-          
+          <span class="product-price">฿65990</span>
         </div>
-        <p class="product-price">฿65990</p>
-        <a href="https://www.lazada.co.th/products/i5782106032.html" target="_blank" rel="noopener" class="product-btn">Add to Cart</a>
+        
+        <div class="stock-bar"><div class="stock-fill" style="width: 99%;"></div></div>
+        <span class="stock-text">🔥 Almost gone!</span>
+        <a href="https://www.lazada.co.th/products/i5782106032.html" target="_blank" rel="noopener" class="product-btn">🛒 Grab Deal</a>
       </div>
     </article>
 
-    <article class="product-card" data-category="Televisions &amp; Videos">
+    <article class="product-card">
+      <span class="deal-badge ">SALE</span>
       <img src="https://th-live-01.slatic.net/p/08fb872059bdde5119bac7be7d83d540.png" alt="[New Model] Sony BRAVIA 5 ทีวี 85 นิ้ว รุ่น  K-85XR50 Mini LED 4K Ultra HD Smart TV (Google TV) | XR Processor" class="product-image">
       <div class="product-info">
-        <span class="product-category">Televisions &amp; Videos</span>
         <h2 class="product-title">[New Model] Sony BRAVIA 5 ทีวี 85 นิ้ว รุ่น  K-85XR50 Mini LED 4K Ultra HD Smart TV (Google TV) | XR Processor</h2>
-        <div class="product-rating">
+        <div class="product-prices">
           
-          
+          <span class="product-price">฿80990</span>
         </div>
-        <p class="product-price">฿80990</p>
-        <a href="https://www.lazada.co.th/products/i5782063276.html" target="_blank" rel="noopener" class="product-btn">Add to Cart</a>
+        
+        <div class="stock-bar"><div class="stock-fill" style="width: 98%;"></div></div>
+        <span class="stock-text">🔥 Almost gone!</span>
+        <a href="https://www.lazada.co.th/products/i5782063276.html" target="_blank" rel="noopener" class="product-btn">🛒 Grab Deal</a>
       </div>
     </article>
   </main>
-  
-  
-  </section>
 
-  <section class="brands-section">
-    <h3 class="brands-title">Shop by Brand</h3>
-    <div class="brands-grid">
-      <div class="brand-card">Nike</div>
-      <div class="brand-card">Adidas</div>
-      <div class="brand-card">Samsung</div>
-      <div class="brand-card">Apple</div>
-      <div class="brand-card">Sony</div>
-      <div class="brand-card">LG</div>
-    </div>
-  </section>
-
+  
   <footer class="footer">
-    <div class="footer-inner">
-      
-    </div>
-    <div class="footer-bottom">
-      <p>© 2026 Corey Reviews. Powered by <a href="https://affillame.com" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">AffiliateMe</a></p>
-    </div>
+    <p>© 2026 Corey Reviews. Powered by <a href="https://affiliateme.in.th" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">AffiliateMe</a></p>
   </footer>
+  
+  <script>
+    // Simple countdown timer
+    function updateCountdown() {
+      const hours = document.getElementById('hours');
+      const mins = document.getElementById('mins');
+      const secs = document.getElementById('secs');
+      
+      let h = parseInt(hours.textContent);
+      let m = parseInt(mins.textContent);
+      let s = parseInt(secs.textContent);
+      
+      s--;
+      if (s < 0) { s = 59; m--; }
+      if (m < 0) { m = 59; h--; }
+      if (h < 0) { h = 23; m = 59; s = 59; }
+      
+      hours.textContent = String(h).padStart(2, '0');
+      mins.textContent = String(m).padStart(2, '0');
+      secs.textContent = String(s).padStart(2, '0');
+    }
+    setInterval(updateCountdown, 1000);
+  </script>
   
   
   <script>
